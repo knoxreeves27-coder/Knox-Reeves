@@ -1,0 +1,98 @@
+{
+  "brand": {
+    "name": "Unicorn Academy Sadiqabad",
+    "short": "UA",
+    "tagline": "Quality Tuition & Mentorship (Prep to FSc)"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "courses": "Courses",
+    "teachers": "Teachers",
+    "results": "Results",
+    "gallery": "Gallery",
+    "admission": "Admission",
+    "contact": "Contact",
+    "portalLogin": "Portal Login",
+    "toggleMenu": "Toggle navigation menu",
+    "langToggle": "Switch Language"
+  },
+  "common": {
+    "applyNow": "Apply Now",
+    "exploreCourses": "Explore Courses",
+    "viewDetails": "View Details",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "close": "Close",
+    "loading": "Loading...",
+    "save": "Save Changes",
+    "backToHome": "Back to Home",
+    "required": "Required",
+    "perMonth": "PKR / Month",
+    "whatsappUs": "Chat with us on WhatsApp"
+  },
+  "badge": {
+    "admissionOpen": "Admission Open",
+    "paid": "Paid",
+    "unpaid": "Unpaid",
+    "partial": "Partial",
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected"
+  },
+  "foundation": {
+    "heroBadge": "Admissions Open 2026-27",
+    "heroTitle": "Excellence in Tuition & Conceptual Education",
+    "heroSubtitle": "Empowering students from Prep through Matric & FSc with conceptual clarity, daily practice tests, and experienced mentorship in Sadiqabad.",
+    "classesTitle": "Academic Programs (Prep to FSc)",
+    "classesSubtitle": "Tailored curriculum, disciplined test sessions, and individual student care across all grades.",
+    "feePrefix": "PKR",
+    "subjectsLabel": "Key Subjects:",
+    "timingLabel": "Class Timings:",
+    "componentsSectionTitle": "UI Component Library & Design System",
+    "componentsSectionSubtitle": "Phase 1 Foundation verification demonstrating buttons, badges, form controls, modals, and toasts in English and RTL Urdu.",
+    "buttonsShowcase": "Button Variants & States",
+    "badgesShowcase": "Status Badges (Color + SVG Icon + Text)",
+    "formsShowcase": "Accessible Form Fields",
+    "modalsAndToasts": "Interactive Overlays & Notifications",
+    "showSuccessToast": "Show Success Toast",
+    "showErrorToast": "Show Error Toast",
+    "openModal": "Open Confirmation Modal",
+    "loadingToggle": "Toggle Button Loading State",
+    "modalTitle": "Confirm Student Record Deletion",
+    "modalBody": "Are you sure you want to delete this sample student record? This operation cannot be reversed once confirmed.",
+    "modalConfirm": "Yes, Delete Record",
+    "modalCancel": "Cancel",
+    "fieldNormalLabel": "Student Legal Name",
+    "fieldNormalPlaceholder": "e.g. Muhammad Ali",
+    "fieldNormalHint": "Must exactly match the student's B-Form or School ID card.",
+    "fieldErrorLabel": "Guardian Contact Number",
+    "fieldErrorPlaceholder": "0300-1234567",
+    "fieldErrorMessage": "Please enter a valid 11-digit Pakistani mobile number starting with 03.",
+    "toastSuccessTitle": "Record Saved Successfully",
+    "toastSuccessMessage": "The sample admission record has been safely updated in local state.",
+    "toastErrorTitle": "Action Notice",
+    "toastErrorMessage": "Sample error simulated to verify alert notification contrast and RTL alignment."
+  },
+  "comingSoon": {
+    "title": "Module Coming Soon",
+    "description": "This page is part of upcoming implementation phases of Unicorn Academy Sadiqabad. Our full features will launch soon.",
+    "stayTuned": "Under Construction"
+  },
+  "notFound": {
+    "title": "404 - Page Not Found",
+    "description": "We couldn't find the page you are looking for. It may have been relocated or removed.",
+    "backButton": "Back to Home Page"
+  },
+  "footer": {
+    "tagline": "Dedicated to nurturing academic brilliance, conceptual learning, and moral grooming for students in Sadiqabad.",
+    "quickLinks": "Quick Navigation",
+    "contactUs": "Contact Information",
+    "phoneLabel": "Phone:",
+    "whatsappLabel": "WhatsApp:",
+    "addressLabel": "Address:",
+    "rights": "All rights reserved. Unicorn Academy Sadiqabad."
+  }
+}
