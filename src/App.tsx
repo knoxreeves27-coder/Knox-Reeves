@@ -7,6 +7,12 @@ import { Layout } from './components/Layout';
 // Route-level code splitting with React.lazy
 const Home = lazy(() => import('./pages/public/Home'));
 const About = lazy(() => import('./pages/public/About'));
+const Courses = lazy(() => import('./pages/public/Courses'));
+const Teachers = lazy(() => import('./pages/public/Teachers'));
+const Results = lazy(() => import('./pages/public/Results'));
+const Gallery = lazy(() => import('./pages/public/Gallery'));
+const Faq = lazy(() => import('./pages/public/Faq'));
+const Contact = lazy(() => import('./pages/public/Contact'));
 const Foundation = lazy(() => import('./pages/public/Foundation'));
 const ComingSoon = lazy(() => import('./pages/public/ComingSoon'));
 const NotFound = lazy(() => import('./pages/public/NotFound'));
@@ -18,22 +24,21 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
-              {/* Phase 2: Home Page */}
+              {/* Core Public Pages */}
               <Route index element={<Home />} />
-
-              {/* Phase 2: About Page */}
               <Route path="about" element={<About />} />
+              <Route path="courses" element={<Courses />} />
+              <Route path="teachers" element={<Teachers />} />
+              <Route path="results" element={<Results />} />
+              <Route path="gallery" element={<Gallery />} />
+              <Route path="faq" element={<Faq />} />
+              <Route path="contact" element={<Contact />} />
 
-              {/* Phase 1 Foundation Test Page (Preserved) */}
+              {/* Foundation Test Page */}
               <Route path="foundation" element={<Foundation />} />
 
-              {/* Other Planned Routes */}
-              <Route path="courses" element={<ComingSoon />} />
-              <Route path="teachers" element={<ComingSoon />} />
-              <Route path="results" element={<ComingSoon />} />
-              <Route path="gallery" element={<ComingSoon />} />
+              {/* Deferred to Subsequent Phases */}
               <Route path="admission" element={<ComingSoon />} />
-              <Route path="contact" element={<ComingSoon />} />
               <Route path="portal/login" element={<ComingSoon />} />
 
               {/* 404 Catch-All */}

@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { WhatsAppButton } from './WhatsAppButton';
+import { ChatWidget } from './ChatWidget';
 import { Skeleton } from './Skeleton';
 
 const PageFallback: React.FC = () => (
@@ -28,7 +29,9 @@ export const Layout: React.FC = () => {
         </Suspense>
       </main>
       <Footer />
+      {/* Floating Action Buttons: WhatsApp at bottom-end, Chat assistant at bottom-start */}
       <WhatsAppButton />
+      <ChatWidget />
     </div>
   );
 };

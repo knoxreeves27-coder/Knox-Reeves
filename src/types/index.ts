@@ -41,6 +41,47 @@ export interface Topper {
   sort_order: number;
 }
 
+export interface Teacher {
+  id: string;
+  name_en: string;
+  name_ur: string;
+  subject_en: string;
+  subject_ur: string;
+  qualification_en: string;
+  qualification_ur: string;
+  experience_en: string;
+  experience_ur: string;
+  photo_url: string;
+  sort_order: number;
+  is_active: boolean;
+}
+
+export type GalleryCategory = 'classroom' | 'events' | 'results';
+
+export interface GalleryItem {
+  id: string;
+  image_url: string;
+  caption_en: string;
+  caption_ur: string;
+  category: GalleryCategory;
+  sort_order: number;
+}
+
+export interface FaqItem {
+  id: string;
+  question_en: string;
+  question_ur: string;
+  answer_en: string;
+  answer_ur: string;
+  sort_order: number;
+}
+
+export interface ContactMessage {
+  name: string;
+  phone: string;
+  message: string;
+}
+
 export interface Testimonial {
   id: string;
   name: string;
@@ -72,6 +113,13 @@ export interface SiteSettings {
   about_mission_ur: string;
   about_vision_en: string;
   about_vision_ur: string;
+  opening_hours_en: string;
+  opening_hours_ur: string;
+  facebook_url: string;
+  instagram_url: string;
+  youtube_url: string;
+  map_embed: string;
+  map_external_url: string;
 }
 
 export type BadgeStatus = 'paid' | 'unpaid' | 'partial' | 'pending' | 'approved' | 'rejected';

@@ -24,8 +24,12 @@ export const Footer: React.FC = () => {
     { to: '/', label: t('nav.home') },
     { to: '/about', label: t('nav.about') },
     { to: '/courses', label: t('nav.courses') },
-    { to: '/admission', label: t('nav.admission') },
+    { to: '/teachers', label: t('nav.teachers') },
+    { to: '/results', label: t('nav.results') },
+    { to: '/gallery', label: t('nav.gallery') },
+    { to: '/faq', label: t('nav.faq') },
     { to: '/contact', label: t('nav.contact') },
+    { to: '/admission', label: t('nav.admission') },
     { to: '/portal/login', label: t('nav.portalLogin') },
   ];
 
@@ -51,12 +55,12 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links with FAQ included */}
           <div className="md:col-span-3 text-start">
             <h4 className="text-white font-semibold text-base mb-4 font-heading tracking-wide">
               {t('footer.quickLinks')}
             </h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="grid grid-cols-2 gap-x-2 gap-y-2 text-sm">
               {quickLinks.map((link) => (
                 <li key={link.to}>
                   <Link
@@ -166,7 +170,7 @@ export const Footer: React.FC = () => {
         {/* Copyright */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-2 text-center sm:text-start">
           <p>© {currentYear} {t('footer.rights')}</p>
-          <p className="text-slate-400">Phase 1 Foundation • Sadiqabad, Pakistan</p>
+          <p className="text-slate-400">Unicorn Academy • Sadiqabad, Pakistan</p>
         </div>
       </div>
     </footer>
