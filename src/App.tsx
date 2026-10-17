@@ -5,6 +5,8 @@ import { ToastProvider } from './components/Toast';
 import { Layout } from './components/Layout';
 
 // Route-level code splitting with React.lazy
+const Home = lazy(() => import('./pages/public/Home'));
+const About = lazy(() => import('./pages/public/About'));
 const Foundation = lazy(() => import('./pages/public/Foundation'));
 const ComingSoon = lazy(() => import('./pages/public/ComingSoon'));
 const NotFound = lazy(() => import('./pages/public/NotFound'));
@@ -16,11 +18,16 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
-              {/* Foundation Test Page */}
-              <Route index element={<Foundation />} />
+              {/* Phase 2: Home Page */}
+              <Route index element={<Home />} />
 
-              {/* Coming Soon Routes */}
-              <Route path="about" element={<ComingSoon />} />
+              {/* Phase 2: About Page */}
+              <Route path="about" element={<About />} />
+
+              {/* Phase 1 Foundation Test Page (Preserved) */}
+              <Route path="foundation" element={<Foundation />} />
+
+              {/* Other Planned Routes */}
               <Route path="courses" element={<ComingSoon />} />
               <Route path="teachers" element={<ComingSoon />} />
               <Route path="results" element={<ComingSoon />} />
