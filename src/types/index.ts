@@ -82,6 +82,53 @@ export interface ContactMessage {
   message: string;
 }
 
+export type AdmissionStatus = 'pending' | 'approved' | 'rejected';
+
+export interface AdmissionRequest {
+  id: string;
+  reference_no: string;
+  student_name: string;
+  father_name: string;
+  date_of_birth: string;
+  class_id: string;
+  previous_school: string | null;
+  phone: string;
+  whatsapp: string | null;
+  address: string;
+  photo_path: string;
+  bform_path: string;
+  result_card_path: string | null;
+  status: AdmissionStatus;
+  reject_reason: string | null;
+  reviewed_at: string | null;
+  student_id: string | null;
+}
+
+export interface AdmissionFormData {
+  student_name: string;
+  father_name: string;
+  date_of_birth: string;
+  class_id: string;
+  group_name?: ClassGroup;
+  previous_school: string;
+  phone: string;
+  whatsapp: string;
+  address: string;
+  photo: File | null;
+  bform: File | null;
+  result_card: File | null;
+  captcha_token: string;
+}
+
+export interface AdmissionStatusResult {
+  reference_no: string;
+  status: AdmissionStatus;
+  reject_reason?: string | null;
+  student_name_masked: string;
+  class_name_en?: string;
+  class_name_ur?: string;
+}
+
 export interface Testimonial {
   id: string;
   name: string;

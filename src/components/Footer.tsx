@@ -30,6 +30,7 @@ export const Footer: React.FC = () => {
     { to: '/faq', label: t('nav.faq') },
     { to: '/contact', label: t('nav.contact') },
     { to: '/admission', label: t('nav.admission') },
+    { to: '/admission/status', label: lang === 'ur' ? 'درخواست کی صورتحال' : 'Track Status' },
     { to: '/portal/login', label: t('nav.portalLogin') },
   ];
 
@@ -55,7 +56,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Links with FAQ included */}
+          {/* Quick Links with FAQ & Track Status included */}
           <div className="md:col-span-3 text-start">
             <h4 className="text-white font-semibold text-base mb-4 font-heading tracking-wide">
               {t('footer.quickLinks')}

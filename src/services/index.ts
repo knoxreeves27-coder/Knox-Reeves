@@ -9,6 +9,8 @@ import {
   Testimonial,
   Stats,
   ContactMessage,
+  AdmissionFormData,
+  AdmissionStatusResult,
 } from '../types';
 import {
   mockClasses,
@@ -150,6 +152,104 @@ export async function submitContactMessage(
   });
 }
 
+// In-memory sequence counter and status store for submitted admissions
+let mockAdmissionSeq = 126;
+const submittedAdmissionsStore = new Map<string, AdmissionStatusResult>([
+  [
+    'ADM-000123',
+    {
+      reference_no: 'ADM-000123',
+      status: 'pending',
+      student_name_masked: 'A*** K***',
+      class_name_en: 'Class 9 (Matric Science)',
+      class_name_ur: 'نویں جماعت (میٹرک سائنس)',
+    },
+  ],
+  [
+    'ADM-000124',
+    {
+      reference_no: 'ADM-000124',
+      status: 'approved',
+      student_name_masked: 'M*** H***',
+      class_name_en: 'FSc (Pre-Medical)',
+      class_name_ur: 'ایف ایس سی (پری میڈیکل)',
+    },
+  ],
+  [
+    'ADM-000125',
+    {
+      reference_no: 'ADM-000125',
+      status: 'rejected',
+      reject_reason:
+        'Seat quota is full for the selected timing shift. Please apply for the alternate morning/evening batch.',
+      student_name_masked: 'Z*** A***',
+      class_name_en: 'Class 10 (Matric Science)',
+      class_name_ur: 'دسویں جماعت (میٹرک سائنس)',
+    },
+  ],
+]);
+
+/**
+ * NOTE FOR STAGE D: submitAdmission will call POST /api/admission
+ * (server-side validation, Turnstile verification, file upload).
+ * The form UI will not require changes when that happens.
+ */
+export async function submitAdmission(
+  data: AdmissionFormData,
+  simulateError?: 'network' | 'server'
+): Promise<{ reference_no: string }> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (simulateError === 'network') {
+        reject(new Error('Network connection failed.'));
+        return;
+      }
+      if (simulateError === 'server') {
+        reject(new Error('Internal server error occurred.'));
+        return;
+      }
+
+      // Generate sequence number like ADM-000126
+      const seqStr = String(mockAdmissionSeq++).padStart(6, '0');
+      const refNo = `ADM-${seqStr}`;
+
+      // Mask student name for privacy (e.g. Muhammad Ali -> M*** A***)
+      const parts = data.student_name.trim().split(/\s+/);
+      const masked = parts
+        .map((p) => (p.length > 0 ? `${p[0]}***` : '***'))
+        .join(' ');
+
+      // Store in memory so tracking works immediately
+      const matchedClass = mockClasses.find((c) => c.id === data.class_id);
+      submittedAdmissionsStore.set(refNo, {
+        reference_no: refNo,
+        status: 'pending',
+        student_name_masked: masked,
+        class_name_en: matchedClass?.name_en || 'Selected Academic Class',
+        class_name_ur: matchedClass?.name_ur || 'منتخب کردہ کلاس',
+      });
+
+      console.log('Admission submitted successfully:', refNo, data);
+      resolve({ reference_no: refNo });
+    }, 700);
+  });
+}
+
+/**
+ * Service to retrieve admission request status by reference number.
+ */
+export async function getAdmissionStatus(
+  referenceNo: string
+): Promise<AdmissionStatusResult | null> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const normalized = referenceNo.trim().toUpperCase();
+      const record = submittedAdmissionsStore.get(normalized);
+      resolve(record ? { ...record } : null);
+    }, 400);
+  });
+}
+
 /**
  * NOTE FOR STAGE E: In Stage E this will call POST /api/chat.
  * The ChatWidget UI consumes this service and will not require changes when that happens.
@@ -159,10 +259,8 @@ export async function sendChatMessage(
   preferredLang: 'en' | 'ur'
 ): Promise<{ text: string; isError?: boolean }> {
   return new Promise((resolve) => {
-    // 600ms - 900ms simulated typing delay
     setTimeout(() => {
       const lower = userText.toLowerCase().trim();
-      // Check if message contains Urdu script
       const hasUrdu = /[\u0600-\u06FF]/.test(userText);
       const isUrdu = hasUrdu || preferredLang === 'ur';
 

@@ -13,6 +13,8 @@ const Results = lazy(() => import('./pages/public/Results'));
 const Gallery = lazy(() => import('./pages/public/Gallery'));
 const Faq = lazy(() => import('./pages/public/Faq'));
 const Contact = lazy(() => import('./pages/public/Contact'));
+const Admission = lazy(() => import('./pages/public/Admission'));
+const AdmissionStatus = lazy(() => import('./pages/public/AdmissionStatus'));
 const Foundation = lazy(() => import('./pages/public/Foundation'));
 const ComingSoon = lazy(() => import('./pages/public/ComingSoon'));
 const NotFound = lazy(() => import('./pages/public/NotFound'));
@@ -34,11 +36,14 @@ export default function App() {
               <Route path="faq" element={<Faq />} />
               <Route path="contact" element={<Contact />} />
 
+              {/* Phase 4: Admission Flow */}
+              <Route path="admission" element={<Admission />} />
+              <Route path="admission/status" element={<AdmissionStatus />} />
+
               {/* Foundation Test Page */}
               <Route path="foundation" element={<Foundation />} />
 
               {/* Deferred to Subsequent Phases */}
-              <Route path="admission" element={<ComingSoon />} />
               <Route path="portal/login" element={<ComingSoon />} />
 
               {/* 404 Catch-All */}
